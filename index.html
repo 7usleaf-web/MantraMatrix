@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Privacy Policy — Mantra Matrix</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --app-bg: #ffffff;
+      --card-surface: #ffffff;
+      --border-tone: #e5e5e5;
+      --text-dominant: #111111;
+      --text-muted: #555555;
+      --accent: #111111;
+      --accent-soft: #f4f4f5;
+    }
+
+    [data-theme="dark"] {
+      --app-bg: #121212;
+      --card-surface: #121212;
+      --border-tone: #2a2a2a;
+      --text-dominant: #f3f4f6;
+      --text-muted: #a1a1aa;
+      --accent: #ffffff;
+      --accent-soft: #1f1f23;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--app-bg);
+      color: var(--text-dominant);
+      line-height: 1.6;
+      padding: 0 16px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Top Minimalist Header */
+    .policy-nav {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-tone);
+      margin-bottom: 24px;
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .theme-toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dominant);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .theme-toggle-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Main Container */
+    .policy-main {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Table of Contents Accordion */
+    .toc-box {
+      border: 1px solid var(--border-tone);
+      border-radius: 14px;
+      background: var(--accent-soft);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .toc-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .toc-icon {
+      font-size: 1.2rem;
+      font-weight: 900;
+      transition: transform 0.25s ease;
+    }
+
+    .toc-list {
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 20px;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .toc-box.open .toc-list {
+      max-height: 250px;
+      padding-bottom: 16px;
+    }
+
+    .toc-box.open .toc-icon {
+      transform: rotate(45deg);
+    }
+
+    .toc-list a {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .toc-list a:hover {
+      color: var(--text-dominant);
+      text-decoration: underline;
+    }
+
+    /* Content Typography */
+    h1.main-heading {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .effective-date {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-block h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-dominant);
+      margin-top: 10px;
+    }
+
+    .section-block p, .section-block li {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .section-block ul {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-tone);
+      margin: 20px 0 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dominant);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="policy-nav">
+    <div class="brand-title">
+      Mantra Matrix
+    </div>
+    <!-- Minimalist Sun/Brightness Icon for Theme Toggle -->
+    <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <line x1="12" y1="2" x2="12" y2="4"></line>
+        <line x1="12" y1="20" x2="12" y2="22"></line>
+        <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+        <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+        <line x1="2" y1="12" x2="4" y2="12"></line>
+        <line x1="20" y1="12" x2="22" y2="12"></line>
+        <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+        <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="policy-main">
+
+    <!-- Table of Contents Dropdown -->
+    <div class="toc-box" id="tocBox">
+      <div class="toc-header" id="tocToggle">
+        <span>Table of Contents</span>
+        <span class="toc-icon">+</span>
+      </div>
+      <div class="toc-list">
+        <a href="#about">1. About Us</a>
+        <a href="#storage">2. Data Storage & Local Protection</a>
+        <a href="#permissions">3. Device Permissions</a>
+        <a href="#terms">4. Terms & Conditions</a>
+        <a href="#contact">5. Contact & Support</a>
+      </div>
+    </div>
+
+    <!-- Page Title & Effective Date -->
+    <div>
+      <h1 class="main-heading">Privacy Policy</h1>
+      <div class="effective-date">Effective: September 12, 2026</div>
+      <p>We’re updating our Privacy Policy. Your privacy and trust are critically important to us. Read below to understand how Mantra Matrix handles your data securely.</p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-block" id="about">
+      <h2>About Us</h2>
+      <p>Mantra Matrix is a digital chant counter and spiritual arena application designed to help practitioners track their daily meditation counts, cycles, and long-term milestones smoothly.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-block" id="storage">
+      <h2>Data Storage & Protection</h2>
+      <p>We believe in absolute data transparency and user control:</p>
+      <ul>
+        <li><strong>Local Storage Only:</strong> All your daily chant counts, history logs, and user profile details are stored exclusively inside your local device storage.</li>
+        <li><strong>Zero Cloud Tracking:</strong> We do not upload, share, or collect any of your personal chanting activities on external servers.</li>
+      </ul>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-block" id="permissions">
+      <h2>Device Permissions</h2>
+      <p>Our app utilizes minimal native capabilities strictly required for functionality, such as haptic vibration for bead feedback and audio effects upon finishing a cycle.</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-block" id="terms">
+      <h2>Terms & Conditions</h2>
+      <p>By using Mantra Matrix, you agree to use the application strictly for personal spiritual tracking and practice. Commercial or unauthorized redistribution is not permitted.</p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-block" id="contact">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or feedback regarding this Privacy Policy, feel free to reach out to our support team directly at:</p>
+      <p style="font-weight: 700; color: var(--text-dominant);">📧 mantramatrixteam@gmail.com</p>
+    </div>
+
+    <!-- Footer Area -->
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <a href="#about">About Us</a>
+      <a href="#terms">Terms</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:mantramatrixteam@gmail.com">Support</a>
+    </div>
+    <div class="copyright">
+      © 2026 Mantra Matrix. All rights reserved.
+    </div>
+
+  </main>
+
+  <script>
+    const tocToggle = document.getElementById('tocToggle');
+    const tocBox = document.getElementById('tocBox');
+
+    tocToggle.addEventListener('click', () => {
+      tocBox.classList.toggle('open');
+    });
+
+    const themeToggleBtn = document.getElementById('themeToggle');
+    let isDark = false;
+
+    themeToggleBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    });
+  </script>
+</body>
+</html>
