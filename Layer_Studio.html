@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy & Terms | Layer Studio</title>
+  
+  <!-- Typography matching Layer Studio / Minimalist Apple aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(0, 0, 0, 0.08);
+      --text-primary: #0F0F11;
+      --text-secondary: #575760;
+      --text-muted: #8E8E93;
+      --accent: #000000;
+      --accent-invert: #FFFFFF;
+      --pill-bg: rgba(0, 0, 0, 0.04);
+      --pill-hover: rgba(0, 0, 0, 0.08);
+      --badge-bg: #EAEAEA;
+      --code-bg: #EFEFEF;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      --backdrop-blur: blur(20px);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0A0A0C;
+      --card-bg: rgba(20, 20, 24, 0.75);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --text-primary: #F4F4F6;
+      --text-secondary: #A0A0AB;
+      --text-muted: #60606A;
+      --accent: #FFFFFF;
+      --accent-invert: #000000;
+      --pill-bg: rgba(255, 255, 255, 0.05);
+      --pill-hover: rgba(255, 255, 255, 0.1);
+      --badge-bg: #222228;
+      --code-bg: #1B1B20;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      /* मोबाइल ब्राउज़र के डिफॉल्ट टैप बॉक्स को पूरी तरह हटाता है */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: radial-gradient(#888 1px, transparent 1px);
+      background-size: 24px 24px;
+      z-index: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: var(--backdrop-blur);
+      -webkit-backdrop-filter: var(--backdrop-blur);
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .header-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sparkle-icon {
+      width: 18px;
+      height: 18px;
+      fill: var(--text-primary);
+      animation: pulse-spin 6s linear infinite;
+    }
+
+    @keyframes pulse-spin {
+      0% { transform: scale(0.9) rotate(0deg); opacity: 0.8; }
+      50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
+      100% { transform: scale(0.9) rotate(360deg); opacity: 0.8; }
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* थीम टॉगल बटन (नीला बॉक्स फिक्स) */
+    .theme-toggle {
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .theme-toggle:focus,
+    .theme-toggle:focus-visible,
+    .theme-toggle:active {
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+
+    .theme-toggle:hover {
+      background: var(--pill-hover);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-primary);
+      stroke-width: 2;
+      fill: none;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    aside {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding-right: 12px;
+    }
+
+    aside::-webkit-scrollbar {
+      width: 4px;
+    }
+    aside::-webkit-scrollbar-thumb {
+      background: var(--card-border);
+      border-radius: 4px;
+    }
+
+    .toc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .toc-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      display: block;
+      line-height: 1.4;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .toc-link:hover, .toc-link.active {
+      color: var(--text-primary);
+      background: var(--pill-hover);
+      font-weight: 500;
+      transform: translateX(4px);
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.75rem;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .meta-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .meta-item strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 22px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 24px 0 12px;
+      color: var(--text-primary);
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    ul, ol {
+      margin: 16px 0 24px 20px;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 6px;
+    }
+
+    strong {
+      color: var(--text-primary);
+    }
+
+    .callout {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px 0;
+      backdrop-filter: var(--backdrop-blur);
+      box-shadow: var(--shadow);
+    }
+
+    .callout-negative {
+      border-left: 4px solid var(--accent);
+    }
+
+    .code-tag {
+      font-family: monospace;
+      font-size: 0.85rem;
+      padding: 2px 6px;
+      background: var(--code-bg);
+      border-radius: 6px;
+      color: var(--text-primary);
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      margin: 28px 0;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      background: var(--pill-bg);
+      color: var(--text-primary);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .status-no {
+      background: var(--pill-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--card-border);
+    }
+
+    .status-optional {
+      background: var(--badge-bg);
+      color: var(--text-primary);
+    }
+
+    .accordion-item {
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .accordion-header {
+      padding: 18px 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+
+    .accordion-content {
+      padding: 0 22px 20px;
+      display: none;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    .accordion-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      header, aside, .theme-toggle {
+        display: none !important;
+      }
+      .container {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+      .callout, .table-container, .accordion-item {
+        border-color: #ddd !important;
+        box-shadow: none !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      aside {
+        display: none;
+      }
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <header>
+    <div class="header-logo">
+      <svg class="sparkle-icon" viewBox="0 0 24 24">
+        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+      </svg>
+      LAYER STUDIO
+    </div>
+    <div class="header-controls">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">
+        <svg id="sunIcon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside>
+      <div class="toc-title">Table of Contents</div>
+      <nav class="toc-nav">
+        <a href="#summary" class="toc-link">1. Quick Safety Summary</a>
+        <a href="#intro" class="toc-link">2. Identification & Scope</a>
+        <a href="#data-collected" class="toc-link">3. Information We Collect</a>
+        <a href="#data-not-collected" class="toc-link">4. What We NEVER Collect</a>
+        <a href="#data-usage" class="toc-link">5. How We Use Data</a>
+        <a href="#third-parties" class="toc-link">6. Third-Party Endpoints</a>
+        <a href="#permissions" class="toc-link">7. Device Permissions</a>
+        <a href="#retention-deletion" class="toc-link">8. Data Retention & Deletion</a>
+        <a href="#children" class="toc-link">9. Children's Privacy (COPPA)</a>
+        <a href="#global-rights" class="toc-link">10. Global Rights (GDPR & CCPA)</a>
+        <a href="#security" class="toc-link">11. Security Practices</a>
+        <a href="#terms" class="toc-link">12. Terms of Service</a>
+        <a href="#contact" class="toc-link">13. Contact Information</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="hero">
+        <div class="badge">Legal Document & Data Safety Transparency</div>
+        <h1>Privacy Policy &amp; Terms of Service</h1>
+        <div class="meta-text">
+          <div class="meta-item">Application: <strong>Layer Studio (Liquid Minimalist Pro)</strong></div>
+          <div class="meta-item">Platform: <strong>Android OS</strong></div>
+          <div class="meta-item">Effective Date: <strong>October 20, 2026</strong></div>
+        </div>
+      </div>
+
+      <section id="summary">
+        <h2>1. Google Play Data Safety Summary</h2>
+        <p>To provide 100% transparency consistent with Google Play Store's Data Safety declaration requirements, the table below provides a quick breakdown of our privacy footprint:</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Data Category</th>
+                <th>Collected / Shared</th>
+                <th>Processing Type</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Personal Info</strong><br><small>(Name, Email, Phone, Account)</small></td>
+                <td><span class="status-badge status-no">No</span></td>
+                <td>None</td>
+                <td>No personal accounts or registration required.</td>
+              </tr>
+              <tr>
+                <td><strong>Hardware IDs</strong><br><small>(IMEI, MAC, Android ID)</small></td>
+                <td><span class="status-badge status-no">No</span></td>
+                <td>None</td>
+                <td>No hardware tracking or fingerprinting.</td>
+              </tr>
+              <tr>
+                <td><strong>Local Widget Drafts &amp; Liked Items</strong></td>
+                <td><span class="status-badge status-no">Not Collected</span></td>
+                <td>Local-Only Storage</td>
+                <td>Saved strictly on client-side <span class="code-tag">localStorage</span>. Never transmitted.</td>
+              </tr>
+              <tr>
+                <td><strong>Community Published Widgets</strong></td>
+                <td><span class="status-badge status-optional">Voluntary Sharing</span></td>
+                <td>Encrypted in Transit (HTTPS)</td>
+                <td>Transmitted to Google Cloud/Sheets only when you tap "Publish" to the Explore feed.</td>
+              </tr>
+              <tr>
+                <td><strong>Pseudonymous Publisher ID</strong></td>
+                <td><span class="status-badge status-optional">Ephemeral</span></td>
+                <td>Encrypted in Transit (HTTPS)</td>
+                <td>Client-generated random UUID (<span class="code-tag">usr_...</span>) to attribute community designs without PII.</td>
+              </tr>
+              <tr>
+                <td><strong>Location, Financial, Audio, Camera</strong></td>
+                <td><span class="status-badge status-no">No</span></td>
+                <td>None</td>
+                <td>Zero access to sensitive sensors or device hardware.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="intro">
+        <h2>2. Identification &amp; Scope</h2>
+        <p>This Privacy Policy and Terms of Service govern your use of the mobile application <strong>Layer Studio</strong> (also distributed as <em>Liquid Minimalist Pro</em>), designed for Android devices, operated by <strong>[Insert Developer or Organization Name]</strong> ("we", "our", or "us").</p>
+        <p>Layer Studio is a design utility allowing users to design, configure, preview, and apply custom minimalist widgets to their Android home screen. We operate on a strict <strong>Privacy-by-Design</strong> architecture: we believe your customizations, designs, and devices belong to you alone.</p>
+      </section>
+
+      <section id="data-collected">
+        <h2>3. Information We Collect</h2>
+        <p>We classify data into two clear categories: local device data and voluntary community transmissions.</p>
+        
+        <h3>A. Information Stored Locally On Your Device (Not Transmitted)</h3>
+        <ul>
+          <li><strong>Widget Configurations &amp; Drafts:</strong> Shape styles, layout dimensions, hex colors, timestamps, custom text tags, and formatting rules.</li>
+          <li><strong>Custom Font Files:</strong> When you import custom typography files (<span class="code-tag">.ttf</span> or <span class="code-tag">.otf</span>), they are decoded strictly in-memory or saved inside local client storage. They are never uploaded to any remote server.</li>
+          <li><strong>Favorites &amp; Liked Widgets:</strong> Your library bookmarks remain strictly on your device.</li>
+        </ul>
+
+        <h3>B. Information Voluntarily Shared via Community Explore</h3>
+        <p>If and only if you choose to publish a widget configuration publicly to the Community Explore feed, the following data is transmitted:</p>
+        <ul>
+          <li><strong>Widget Metadata:</strong> Widget title, creator display name (freely chosen pseudonym), structural JSON parameters, and creation timestamp.</li>
+          <li><strong>Pseudonymous User Token:</strong> A randomly generated client-side identifier (e.g., <span class="code-tag">usr_a8f9c2...</span>) generated via JavaScript. This token contains zero device hardware identifiers and serves exclusively to group your published designs together.</li>
+        </ul>
+      </section>
+
+      <section id="data-not-collected">
+        <h2>4. Information We Explicitly DO NOT Collect</h2>
+        <div class="callout callout-negative">
+          <p><strong>Zero-Tracking Affirmation:</strong></p>
+          <p>To eliminate ambiguity for Google Play Developer Program Policy checks, we formally affirm that Layer Studio does <strong>NOT</strong> collect, harvest, store, or sell:</p>
+          <ul style="margin-bottom: 0;">
+            <li>No Personally Identifiable Information (PII) such as real legal names, physical addresses, email addresses, or phone numbers.</li>
+            <li>No Persistent Hardware Identifiers (No IMEI, No MAC Address, No Hardware Serial, No Advertising ID / GAID).</li>
+            <li>No Geolocation Data (neither precise GPS nor coarse network location).</li>
+            <li>No Biometric, Health, Financial, or Payment Data.</li>
+            <li>No Microphone, Camera, Contact Books, SMS, Call Logs, or Installed Applications lists.</li>
+            <li>No Third-Party Analytics SDKs (e.g., Firebase Analytics, Adjust, AppsFlyer) or Behavioral Tracking.</li>
+            <li>No Targeted Advertising Networks (e.g., Google AdMob, Unity Ads).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="data-usage">
+        <h2>5. How We Use the Information</h2>
+        <p>The limited data handled by the application is utilized solely to deliver user-requested features:</p>
+        <ol>
+          <li><strong>Rendering Widgets:</strong> Parsing local widget configuration arrays to render graphics in real-time.</li>
+          <li><strong>Facilitating Community Sharing:</strong> Transmitting submitted designs to public community endpoints so other users can explore and import them.</li>
+          <li><strong>Spam &amp; Duplicate Prevention:</strong> Utilizing the pseudonymous UUID token to moderate submissions and prevent duplicate spam entries.</li>
+        </ol>
+      </section>
+
+      <section id="third-parties">
+        <h2>6. Third-Party Endpoints &amp; Sub-Processors</h2>
+        <p>Layer Studio does not maintain private centralized databases. When community features are accessed, the application communicates securely with the following infrastructure:</p>
+        <ul>
+          <li><strong>Google Sheets &amp; Google Apps Script (Google Cloud Platform):</strong>
+            <ul>
+              <li><strong>Fetching Public Widgets:</strong> The app queries a read-only Google Visualization API endpoint (<span class="code-tag">tq?tqx=out:json</span>) to load the community feed.</li>
+              <li><strong>Publishing Widgets:</strong> Community submissions are sent via HTTPS POST requests to a secured Google Apps Script web endpoint.</li>
+              <li>Data is processed under Google's standard enterprise privacy and security protocols (<a href="https://policies.google.com/privacy" target="_blank" style="color: var(--text-primary);">Google Privacy Policy</a>).</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="permissions">
+        <h2>7. Android Permissions &amp; Native Bridges</h2>
+        <p>Layer Studio requests minimal system permissions strictly required for core functionality:</p>
+        <ul>
+          <li><strong><span class="code-tag">android.permission.INTERNET</span>:</strong> Required exclusively to download community widget presets from the Explore feed and upload designs you choose to share. The app works fully offline for local widget creation.</li>
+          <li><strong>JavaScript-to-Native Bridge (<span class="code-tag">window.AndroidApp</span>):</strong>
+            <ul>
+              <li><span class="code-tag">saveAndPinWidget</span>: Invokes the native Android widget manager (<span class="code-tag">AppWidgetManager.requestPinAppWidget</span>) to place the widget on your home screen.</li>
+              <li><span class="code-tag">updateStatusBar</span>: Dynamically updates Android system bar colors to complement your selected preview theme.</li>
+            </ul>
+          </li>
+          <li><strong>Local Document Selector / Storage Access:</strong> Invoked when you choose custom font files (<span class="code-tag">.ttf</span>, <span class="code-tag">.otf</span>). The file is parsed directly into memory via HTML5 FileReader APIs without granting the app background access to your photo library or personal files.</li>
+        </ul>
+      </section>
+
+      <section id="retention-deletion">
+        <h2>8. Data Retention, Local Cleanup &amp; Erasure</h2>
+        
+        <h3>Local Data Deletion</h3>
+        <p>You maintain autonomous control over all data stored on your device. You can purge all drafts, presets, and preferences at any time by:</p>
+        <ul>
+          <li>Navigating to the in-app settings and tapping <strong>"Clear All Projects"</strong>, <strong>"Reset Favorites"</strong>, or <strong>"Clear Cache"</strong>.</li>
+          <li>Clearing the app storage directly via Android Settings: <em>Settings &gt; Apps &gt; Layer Studio &gt; Storage &gt; Clear Data</em>.</li>
+        </ul>
+
+        <h3>Community Content Erasure Protocol</h3>
+        <p>If you published a widget to the Explore feed and wish to have it permanently excised from the public Google Sheets database, email our designated privacy team at <strong>[Insert Contact Email]</strong> with:</p>
+        <ol>
+          <li>The widget title and display author name.</li>
+          <li>Your pseudonymous publisher token (accessible from the app's Explore profile settings).</li>
+        </ol>
+        <p>Manual deletion requests are audited and fulfilled within <strong>7 business days</strong>.</p>
+      </section>
+
+      <section id="children">
+        <h2>9. Children’s Privacy (COPPA Compliance)</h2>
+        <p>Layer Studio is a general-audience creative utility intended for individuals aged <strong>13 and older</strong> (or 16 and older in the EEA). We do not knowingly market to or solicit personal information from children under 13. Because our service does not collect personal identifiers, no underage tracking occurs.</p>
+      </section>
+
+      <section id="global-rights">
+        <h2>10. Rights Under Global Privacy Laws (GDPR &amp; CCPA/CPRA)</h2>
+        <div class="callout">
+          <h3>European Union &amp; UK Residents (GDPR / UK GDPR)</h3>
+          <p>Under Articles 15–22 of the GDPR, you have the right to access, rectify, restrict, or request erasure of your data. Because all local projects reside solely on your hardware, you can execute these rights instantly on-device. For community records, contact our email below.</p>
+
+          <h3 style="margin-top: 20px;">California Residents (CCPA / CPRA &amp; CalOPPA)</h3>
+          <p>Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):</p>
+          <ul>
+            <li><strong>No Sale or Sharing of Personal Information:</strong> We do not "sell" or "share" personal data with third parties for cross-context behavioral advertising.</li>
+            <li><strong>Non-Discrimination:</strong> We never discriminate against any user who exercises their statutory privacy rights.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security">
+        <h2>11. Security Safeguards</h2>
+        <p>All network communications between the mobile application and public feed endpoints are enforced via industry-standard Transport Layer Security (TLS 1.2/1.3) over <strong>HTTPS</strong>. Local drafts are protected by Android's sandbox security model, isolating application data from unauthorized processes.</p>
+      </section>
+
+      <section id="terms">
+        <h2>12. Terms of Service &amp; Community Guidelines</h2>
+        <ul>
+          <li><strong>Intellectual Property &amp; Community Submissions:</strong> When you voluntarily submit a widget to the Explore feed, you grant Layer Studio a worldwide, non-exclusive, royalty-free license to display, replicate, and distribute that configuration to other app users.</li>
+          <li><strong>Prohibited Content:</strong> You agree not to upload designs containing offensive, hateful, infringing, or malicious content. Submissions violating these rules will be removed without notice.</li>
+          <li><strong>Disclaimer of Warranty:</strong> Layer Studio is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranty that widget updates or home screen syncs will be uninterrupted or error-free across all OEM Android distributions.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Does Layer Studio require creating an account?
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            No. Layer Studio requires zero user accounts, email sign-ups, or social logins. You can design, customize, and apply widgets immediately upon installation.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Are my custom imported fonts sent to your servers?
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            Absolutely not. Any TTF or OTF font you import is rendered locally inside the app sandbox via memory buffers. They are never transmitted over the internet.
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Why does the app need Internet permission?
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content">
+            Internet access is used strictly to load community widgets inside the "Explore" tab and upload public widget configurations if you choose to share them.
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>13. Contact Information &amp; Policy Updates</h2>
+        <p>We may update this policy periodically to reflect architectural or regulatory revisions. Any updates will be published to this URL with a revised effective date.</p>
+        <div class="callout">
+          <p>For inquiries, support, or manual deletion requests, reach our compliance team at:</p>
+          <p><strong>Entity Name:</strong> [Insert Developer or Organization Name]<br>
+          <strong>Developer Email:</strong> <a href="mailto:support@yourdomain.com" style="color: var(--text-primary); text-decoration: underline;">support@yourdomain.com</a><br>
+          <strong>Headquarters / Jurisdiction:</strong> [Insert City, Country]</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+    });
+
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.toc-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 120) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
